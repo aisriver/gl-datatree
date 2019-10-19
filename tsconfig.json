@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "outDir": "./build/",
+    "declaration": true,
+    "declarationDir": "./build/",
+    "declarationMap": true,
+    "target": "es5",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "sourceMap": false,
+    "baseUrl": ".",
+    "allowJs": false,
+    "lib": ["dom", "es2015"],
+    "removeComments": true,
+    "noEmit": false,
+    "strict": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "isolatedModules": false,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "downlevelIteration": true,
+    "resolveJsonModule": true,
+    "strictPropertyInitialization": true,
+    "skipLibCheck": true,
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "**/*.(spec|test).ts?(x)", "build", "__tests__", "__mocks__", "example"]
+}
