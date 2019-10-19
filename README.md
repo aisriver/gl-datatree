@@ -94,11 +94,11 @@ gl-datatree 组件也许并不是一个很好的解决方案，但我把他当�
 ## 📦 安装
 
 ```bash
-npm install antd --save
+npm install gl-datatree --save
 ```
 
 ```bash
-yarn add antd
+yarn add gl-datatree
 ```
 
 ## 🔨 示例
@@ -133,7 +133,7 @@ glTree.setOption({
 glTree.dispose();
 ```
 
-# feature
+# future
 
 - 未来有可能提供的功能
 
