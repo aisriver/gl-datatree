@@ -1,6 +1,6 @@
 {
   "name": "gl-datatree",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "webgl 3d data tree",
   "main": "./build/index.js",
   "types": "./build/types/index.d.ts",
