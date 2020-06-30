@@ -1,24 +1,17 @@
 {
   "compilerOptions": {
-    "outDir": "./build/",
     "declaration": true,
-    "declarationDir": "./build/",
     "declarationMap": true,
-    "target": "es5",
+    "isolatedModules": false,
+    "target": "esnext",
     "module": "esnext",
     "moduleResolution": "node",
-    "importHelpers": true,
-    "esModuleInterop": true,
-    "sourceMap": false,
-    "baseUrl": ".",
-    "allowJs": false,
-    "lib": ["dom", "es2015"],
-    "removeComments": true,
-    "noEmit": false,
     "strict": true,
+    "allowJs": true,
+    "lib": ["esnext", "dom"],
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "isolatedModules": false,
+    "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -29,12 +22,18 @@
     "suppressImplicitAnyIndexErrors": true,
     "downlevelIteration": true,
     "resolveJsonModule": true,
-    "strictPropertyInitialization": true,
-    "skipLibCheck": true,
-    "paths": {
-      "@/*": ["src/*"]
-    }
+    "skipLibCheck": true
   },
-  "include": ["src/**/*.ts"],
-  "exclude": ["node_modules", "**/*.(spec|test).ts?(x)", "build", "__tests__", "__mocks__", "example"]
+  "exclude": [
+    "node_modules",
+    "**/*.(spec|test).ts?(x)",
+    "build",
+    "dist",
+    "__tests__",
+    "jest",
+    "example",
+    "lib",
+    "es",
+    "scripts"
+  ]
 }

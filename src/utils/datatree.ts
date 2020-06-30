@@ -88,7 +88,6 @@ const renderTree = (props: RenderTreePropsType) => {
     node.userData = {
       type: 'node',
       position: nodePosition,
-      label: item.label,
       level,
       ...nodeCubeConfig,
       ...restParams,
@@ -150,7 +149,10 @@ const renderTree = (props: RenderTreePropsType) => {
 /**
  * 创建数据树
  */
-const createDataTree = (props: CreateDataTreeProps = initialDataTree, callBack: (treeGroup: THREE.Group) => void) => {
+const createDataTree = (
+  props: CreateDataTreeProps = initialDataTree,
+  callBack: (treeGroup: THREE.Group) => void,
+) => {
   const { position, data, title = '' } = props;
   const { x, y, z } = position;
   const group = new THREE.Group();
@@ -166,7 +168,7 @@ const createDataTree = (props: CreateDataTreeProps = initialDataTree, callBack: 
   let startNode;
   const startPosition = { x: 0, y: 0, z: 0 };
   const endPosition = { x: 0, y: treeHeight, z: 0 };
-  leafLoader.load(require('../assets/gl/object/tree/root.gltf'), (gltf: GLTF) => {
+  leafLoader.load(require('../assets/tree/root.gltf'), (gltf: GLTF) => {
     startNode = gltf.scene.clone();
     startNode.position.set(0, 0, 0);
     startNode.scale.set(2, 2, 2);
@@ -207,7 +209,7 @@ const createDataTree = (props: CreateDataTreeProps = initialDataTree, callBack: 
   // group.add(cylinder);
   group.add(trunk);
   dataIds = ['trunk'];
-  leafLoader.load(require('../assets/gl/object/tree/leafs.gltf'), (gltf: GLTF) => {
+  leafLoader.load(require('../assets/tree/leafs.gltf'), (gltf: GLTF) => {
     leafs = gltf;
     renderTree({
       data,

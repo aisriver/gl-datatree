@@ -91,22 +91,22 @@ interface TextOptionProps extends TextGeometryParameters {
   color?: number;
 }
 
-const font: THREE.Font | null = null;
+let font: THREE.Font | null = null;
 const fontLoader = new THREE.FontLoader();
 
 export const initFont = (callBack: (response: THREE.Font) => void) => {
   if (font) {
     callBack(font);
   } else {
-    const font = fontLoader.parse(require('../assets/gl/font/PingFang_SC_Regular.json'));
-    callBack(font);
-    // fontLoader.load(
-    //   'https://ais-pace.oss-cn-hangzhou.aliyuncs.com/PingFang_SC_Regular.json',
-    //   response => {
-    //     font = response;
-    //     callBack(font);
-    //   },
-    // );
+    // const font = fontLoader.parse(require('../assets/gl/font/PingFang_SC_Regular.json'));
+    // callBack(font);
+    fontLoader.load(
+      'https://raw.githubusercontent.com/aisriver/gl-datatree/master/src/assets/gl/font/PingFang_SC_Regular.json',
+      response => {
+        font = response;
+        callBack(font);
+      },
+    );
   }
 };
 

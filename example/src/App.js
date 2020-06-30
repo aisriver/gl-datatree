@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import logo from './logo.svg';
 import './App.css';
-const GlDataTree = require('../../build').default;
+const GlDataTree = require('../../es').default;
 const orgTree = require('./testData').default;
 
 function App() {
@@ -12,8 +12,8 @@ function App() {
     glTree.setOption({
       title: '组织架构树',
       data: orgTree,
-      autoRotate: false,
-      autoPlay: false,
+      autoRotate: true,
+      autoPlay: true,
       listening: {
         onSelected: (userData: any, domPosition) => {
           const showData = [

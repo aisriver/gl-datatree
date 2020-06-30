@@ -2,32 +2,36 @@
   "name": "gl-datatree",
   "version": "1.0.1",
   "description": "webgl 3d data tree",
-  "main": "./build/index.js",
-  "types": "./build/types/index.d.ts",
   "private": false,
-  "scripts": {
-    "build": "tsc && cp -R src/assets build/",
-    "test": "jest"
-  },
+  "main": "lib/index.js",
+  "unpkg": "lib/index.js",
+  "module": "es/index.js",
+  "types": "lib/index.d.ts",
   "files": [
-    "build"
+    "es",
+    "lib"
   ],
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx,json,css,scss}": [
-      "prettier --check src/**/*.ts",
-      "prettier --check src/**/*.tsx",
-      "eslint src/**/*.ts",
-      "eslint src/**/*.tsx"
-    ]
+  "publishConfig": {
+    "registry": "http://registry.npmjs.org/",
+    "access": "public"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/aisriver/gl-datatree.git"
+  },
+  "scripts": {
+    "build": "lotus-tools build",
+    "release": "git add . && node scripts/release.js && git push --follow-tags",
+    "tsc": "tsc -p ./tsconfig.json --noEmit",
+    "commit": "git-cz",
+    "eslint:fix": "eslint --fix --ext .ts,.tsx src/",
+    "lint:fix": "prettier --check src/**/*.ts --write",
+    "test": "jest"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "three": "^0.109.0",
+    "three-gltf-loader": "^1.109.0"
   },
   "keywords": [
     "webgl",
@@ -43,23 +47,42 @@
     "url": "https://github.com/aisriver/gl-datatree/issues"
   },
   "homepage": "https://github.com/aisriver/gl-datatree#readme",
+  "changelog": {
+    "emojis": true,
+    "authorName": true,
+    "authorEmail": true
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run tsc && npm run eslint:fix && npm run lint:fix && lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{ts,tsx}": [
+      "git add ."
+    ]
+  },
   "devDependencies": {
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@lotus-ui/tools": "^0.2.5",
     "@types/node": "^12.7.12",
     "@typescript-eslint/eslint-plugin": "^2.4.0",
     "@typescript-eslint/parser": "^2.4.0",
+    "commitizen": "^4.0.3",
+    "conventional-changelog-cli": "^2.0.25",
+    "conventional-changelog-custom-config": "^0.2.0",
+    "cz-customizable": "^6.2.0",
     "eslint": "^6.5.1",
     "eslint-config-prettier": "^6.4.0",
     "eslint-plugin-prettier": "^3.1.1",
     "husky": "^3.0.9",
     "lint-staged": "^9.4.2",
     "prettier": "^1.18.2",
+    "standard-version": "^7.0.0",
     "ts-loader": "^6.2.0",
     "ts-node": "^8.4.1",
     "typescript": "^3.6.4"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "three": "^0.109.0",
-    "three-gltf-loader": "^1.109.0"
   }
 }
