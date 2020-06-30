@@ -1,6 +1,12 @@
 import * as THREE from 'three';
 import { TextGeometryParameters } from 'three/src/geometries/TextGeometry';
-import { CubeProps, LinkProps, CylinderProps, CylinderMeshProps, TubeProps } from '../interfaces/common';
+import {
+  CubeProps,
+  LinkProps,
+  CylinderProps,
+  CylinderMeshProps,
+  TubeProps,
+} from '../interfaces/common';
 
 export const initialCube = {
   size: { x: 10, y: 10, z: 10 },
@@ -12,7 +18,10 @@ export const initialColor = Math.random() * 0xffffff;
 export const createCube = ({ size, color }: CubeProps = initialCube) => {
   const { x, y, z } = size;
   const geometry = new THREE.BoxBufferGeometry(x, y, z);
-  const mesh = new THREE.Mesh(geometry, new THREE.MeshLambertMaterial({ color: color || initialColor }));
+  const mesh = new THREE.Mesh(
+    geometry,
+    new THREE.MeshLambertMaterial({ color: color || initialColor }),
+  );
   mesh.position.set(0, 0, 0);
   return mesh;
 };
@@ -33,7 +42,14 @@ export const createLink = (props: LinkProps) => {
 
 /** 创建锥体 */
 export const createCylinder = (props: CylinderProps) => {
-  const { radiusTop, radiusBottom, height, radialSegments, color = initialColor, basePosition } = props;
+  const {
+    radiusTop,
+    radiusBottom,
+    height,
+    radialSegments,
+    color = initialColor,
+    basePosition,
+  } = props;
   const geometry = new THREE.CylinderGeometry(radiusTop, radiusBottom, height, radialSegments);
   const material = new THREE.MeshLambertMaterial({ color });
   const cylinder = new THREE.Mesh(geometry, material);
@@ -64,7 +80,14 @@ export const createCylinderMesh = function(props: CylinderMeshProps) {
 };
 
 export const createTube = (props: TubeProps) => {
-  const { startPosition, endPosition, segments = 20, radius, radiusSegments = 10, closed = false } = props;
+  const {
+    startPosition,
+    endPosition,
+    segments = 20,
+    radius,
+    radiusSegments = 10,
+    closed = false,
+  } = props;
   const startPoint = new THREE.Vector3(startPosition.x, startPosition.y, startPosition.z);
   const endPoint = new THREE.Vector3(endPosition.x, endPosition.y, endPosition.z);
   // 创建中心偏移节点 生成曲线
@@ -110,7 +133,10 @@ export const initFont = (callBack: (response: THREE.Font) => void) => {
   }
 };
 
-export const createFont = (option: TextOptionProps, callBack?: (result: THREE.Object3D) => void) => {
+export const createFont = (
+  option: TextOptionProps,
+  callBack?: (result: THREE.Object3D) => void,
+) => {
   const { text, size = 3, height = 0.1, color = 0xff0000 } = option;
   initFont(font => {
     const geometry = new THREE.TextGeometry(text, {
