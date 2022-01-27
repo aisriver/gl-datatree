@@ -30,7 +30,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "three": "^0.109.0",
+    "three": "^0.137.0",
     "three-gltf-loader": "^1.109.0"
   },
   "keywords": [
