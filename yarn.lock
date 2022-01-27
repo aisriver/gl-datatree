@@ -7460,10 +7460,10 @@ three-gltf-loader@^1.109.0:
   resolved "http://nexus.thundersdata.com:30012/repository/npm-repo-group/three-gltf-loader/-/three-gltf-loader-1.109.0.tgz#64ebaa0d14704431c7b5f0be0938ad346a618d70"
   integrity sha1-ZOuqDRRwRDHHtfC+CTitNGphjXA=
 
-three@^0.109.0:
-  version "0.109.0"
-  resolved "http://nexus.thundersdata.com:30012/repository/npm-repo-group/three/-/three-0.109.0.tgz#611c9ef860d10bd107695cead6c6abcd2422e5fd"
-  integrity sha1-YRye+GDRC9EHaVzq1sarzSQi5f0=
+three@^0.137.0:
+  version "0.137.0"
+  resolved "https://registry.yarnpkg.com/three/-/three-0.137.0.tgz#0ebd6ba66637a332c31f234bcdd35aeec071a6e3"
+  integrity sha512-rzSDhia6cU35UCy6y+zEEws6vSgytfHqFMSaBvUcySgzwvDO6vETyswtSNi/+aVqJw8WLMwyT1mlQQ1T/dxxOA==
 
 through2-filter@^3.0.0:
   version "3.0.0"
